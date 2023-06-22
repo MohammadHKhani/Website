@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="styles/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles/aos.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <title>Hounter Website</title>
+</head>
+<body>
+
+    <svg style="display: none;">
+        <symbol id="arrowDown" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></symbol>
+        <symbol id="arrowRight" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></symbol>
+        <symbol id="location" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></symbol>
+        <symbol id="star" viewBox="0 0 576 512"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></symbol>
+        <symbol id="house" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></symbol>
+        <symbol id="villa" viewBox="0 0 640 512"><path d="M218.3 8.5c12.3-11.3 31.2-11.3 43.4 0l208 192c6.7 6.2 10.3 14.8 10.3 23.5H336c-19.1 0-36.3 8.4-48 21.7V208c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16h64V416H112c-26.5 0-48-21.5-48-48V256H32c-13.2 0-25-8.1-29.8-20.3s-1.6-26.2 8.1-35.2l208-192zM352 304V448H544V304H352zm-48-16c0-17.7 14.3-32 32-32H560c17.7 0 32 14.3 32 32V448h32c8.8 0 16 7.2 16 16c0 26.5-21.5 48-48 48H544 352 304c-26.5 0-48-21.5-48-48c0-8.8 7.2-16 16-16h32V288z"/></symbol>
+        <symbol id="apartment" viewBox="0 0 384 512"><path d="M48 0C21.5 0 0 21.5 0 48V464c0 26.5 21.5 48 48 48h96V432c0-26.5 21.5-48 48-48s48 21.5 48 48v80h96c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H48zM64 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V240zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V240zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V112zM272 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16z"/></symbol>
+        <symbol id="popular" viewBox="0 0 448 512"><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></symbol>
+        <symbol id="wallet" viewBox="0 0 512 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></symbol>
+        <symbol id="bedroom" viewBox="0 0 640 512"><path d="M32 32c17.7 0 32 14.3 32 32V320H288V160c0-17.7 14.3-32 32-32H544c53 0 96 43 96 96V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H352 320 64v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V64C0 46.3 14.3 32 32 32zm144 96a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"/></symbol>
+        <symbol id="bath" viewBox="0 0 512 512"><path d="M96 77.3c0-7.3 5.9-13.3 13.3-13.3c3.5 0 6.9 1.4 9.4 3.9l14.9 14.9C130 91.8 128 101.7 128 112c0 19.9 7.2 38 19.2 52c-5.3 9.2-4 21.1 3.8 29c9.4 9.4 24.6 9.4 33.9 0L289 89c9.4-9.4 9.4-24.6 0-33.9c-7.9-7.9-19.8-9.1-29-3.8C246 39.2 227.9 32 208 32c-10.3 0-20.2 2-29.2 5.5L163.9 22.6C149.4 8.1 129.7 0 109.3 0C66.6 0 32 34.6 32 77.3V256c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H96V77.3zM32 352v16c0 28.4 12.4 54 32 71.6V480c0 17.7 14.3 32 32 32s32-14.3 32-32V464H384v16c0 17.7 14.3 32 32 32s32-14.3 32-32V439.6c19.6-17.6 32-43.1 32-71.6V352H32z"/></symbol>
+        <symbol id="car" viewBox="0 0 512 512"><path d="M135.2 117.4L109.1 192H402.9l-26.1-74.6C372.3 104.6 360.2 96 346.6 96H165.4c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32H346.6c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2V400v48c0 17.7-14.3 32-32 32H448c-17.7 0-32-14.3-32-32V400H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V400 256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></symbol>
+        <symbol id="apartment2" viewBox="0 0 640 512"><path d="M48 0C21.5 0 0 21.5 0 48V464c0 26.5 21.5 48 48 48h96V432c0-26.5 21.5-48 48-48s48 21.5 48 48v80h89.9c-6.3-10.2-9.9-22.2-9.9-35.1c0-46.9 25.8-87.8 64-109.2V271.8 48c0-26.5-21.5-48-48-48H48zM64 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V240zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V240zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V112zM272 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zM576 272a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM352 477.1c0 19.3 15.6 34.9 34.9 34.9H605.1c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1H445.1c-51.4 0-93.1 41.7-93.1 93.1z"/></symbol>
+        <symbol id="phone" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></symbol>
+        <symbol id="play" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></symbol>
+        <symbol id="clock" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></symbol>
+        <symbol id="email" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol>
+        <symbol id="facebook" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></symbol>
+        <symbol id="likdedin" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></symbol>
+        <symbol id="telegram" viewBox="0 0 496 512"><path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/></symbol>
+        <symbol id="x-mark" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></symbol>
+        <symbol id="about" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></symbol>
+        <symbol id="article" viewBox="0 0 512 512"><path d="M96 96c0-35.3 28.7-64 64-64H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H80c-44.2 0-80-35.8-80-80V128c0-17.7 14.3-32 32-32s32 14.3 32 32V400c0 8.8 7.2 16 16 16s16-7.2 16-16V96zm64 24v80c0 13.3 10.7 24 24 24H296c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24H184c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16z"/></symbol>
+        <symbol id="property" viewBox="0 0 576 512"><path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/></symbol>
+        <symbol id="feature" viewBox="0 0 512 512"><path d="M112 0c6.5 0 12.3 3.9 14.8 9.9s1.1 12.9-3.5 17.4l-31 31L112 78.1l7-7c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-7 7 15.2 15.2C187.7 107.6 220.5 96 256 96s68.3 11.6 94.9 31.2l68.8-68.8-31-31c-4.6-4.6-5.9-11.5-3.5-17.4s8.3-9.9 14.8-9.9h96c8.8 0 16 7.2 16 16v96c0 6.5-3.9 12.3-9.9 14.8s-12.9 1.1-17.4-3.5l-31-31-68.8 68.8C404.4 187.7 416 220.5 416 256c0 80.2-59 146.6-136 158.2V432h16c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v8c0 13.3-10.7 24-24 24s-24-10.7-24-24v-8H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h16V414.2C155 402.6 96 336.2 96 256c0-35.5 11.6-68.3 31.2-94.9L112 145.9l-7 7c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l7-7L58.3 92.3l-31 31c-4.6 4.6-11.5 5.9-17.4 3.5S0 118.5 0 112V16C0 7.2 7.2 0 16 0h96zM352 256a96 96 0 1 0 -192 0 96 96 0 1 0 192 0z"/></symbol>
+        <symbol id="sell" viewBox="0 0 448 512"><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></symbol>
+        <symbol id="subscribe" viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></symbol>
+        <symbol id="contact" viewBox="0 0 576 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></symbol>
+        <symbol id="paypal" viewBox="0 0 384 512"><path d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"/></symbol>
+        <symbol id="bitcoin" viewBox="0 0 512 512"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zm-141.651-35.33c4.937-32.999-20.191-50.739-54.55-62.573l11.146-44.702-27.213-6.781-10.851 43.524c-7.154-1.783-14.502-3.464-21.803-5.13l10.929-43.81-27.198-6.781-11.153 44.686c-5.922-1.349-11.735-2.682-17.377-4.084l.031-.14-37.53-9.37-7.239 29.062s20.191 4.627 19.765 4.913c11.022 2.751 13.014 10.044 12.68 15.825l-12.696 50.925c.76.194 1.744.473 2.829.907-.907-.225-1.876-.473-2.876-.713l-17.796 71.338c-1.349 3.348-4.767 8.37-12.471 6.464.271.395-19.78-4.937-19.78-4.937l-13.51 31.147 35.414 8.827c6.588 1.651 13.045 3.379 19.4 5.006l-11.262 45.213 27.182 6.781 11.153-44.733a1038.209 1038.209 0 0 0 21.687 5.627l-11.115 44.523 27.213 6.781 11.262-45.128c46.404 8.781 81.299 5.239 95.986-36.727 11.836-33.79-.589-53.281-25.004-65.991 17.78-4.098 31.174-15.792 34.747-39.949zm-62.177 87.179c-8.41 33.79-65.308 15.523-83.755 10.943l14.944-59.899c18.446 4.603 77.6 13.717 68.811 48.956zm8.417-87.667c-7.673 30.736-55.031 15.12-70.393 11.292l13.548-54.327c15.363 3.828 64.836 10.973 56.845 43.035z"/></symbol>
+        <symbol id="bank" viewBox="0 0 576 512"><path d="M400 96l0 .7c-5.3-.4-10.6-.7-16-.7H256c-16.5 0-32.5 2.1-47.8 6c-.1-2-.2-4-.2-6c0-53 43-96 96-96s96 43 96 96zm-16 32c3.5 0 7 .1 10.4 .3c4.2 .3 8.4 .7 12.6 1.3C424.6 109.1 450.8 96 480 96h11.5c10.4 0 18 9.8 15.5 19.9l-13.8 55.2c15.8 14.8 28.7 32.8 37.5 52.9H544c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H512c-9.1 12.1-19.9 22.9-32 32v64c0 17.7-14.3 32-32 32H416c-17.7 0-32-14.3-32-32V448H256v32c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V416c-34.9-26.2-58.7-66.3-63.2-112H68c-37.6 0-68-30.4-68-68s30.4-68 68-68h4c13.3 0 24 10.7 24 24s-10.7 24-24 24H68c-11 0-20 9-20 20s9 20 20 20H99.2c12.1-59.8 57.7-107.5 116.3-122.8c12.9-3.4 26.5-5.2 40.5-5.2H384zm64 136a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></symbol>
+        <symbol id="visa" viewBox="0 0 576 512"><path d="M470.1 231.3s7.6 37.2 9.3 45H446c3.3-8.9 16-43.5 16-43.5-.2.3 3.3-9.1 5.3-14.9l2.8 13.4zM576 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48zM152.5 331.2L215.7 176h-42.5l-39.3 106-4.3-21.5-14-71.4c-2.3-9.9-9.4-12.7-18.2-13.1H32.7l-.7 3.1c15.8 4 29.9 9.8 42.2 17.1l35.8 135h42.5zm94.4.2L272.1 176h-40.2l-25.1 155.4h40.1zm139.9-50.8c.2-17.7-10.6-31.2-33.7-42.3-14.1-7.1-22.7-11.9-22.7-19.2.2-6.6 7.3-13.4 23.1-13.4 13.1-.3 22.7 2.8 29.9 5.9l3.6 1.7 5.5-33.6c-7.9-3.1-20.5-6.6-36-6.6-39.7 0-67.6 21.2-67.8 51.4-.3 22.3 20 34.7 35.2 42.2 15.5 7.6 20.8 12.6 20.8 19.3-.2 10.4-12.6 15.2-24.1 15.2-16 0-24.6-2.5-37.7-8.3l-5.3-2.5-5.6 34.9c9.4 4.3 26.8 8.1 44.8 8.3 42.2.1 69.7-20.8 70-53zM528 331.4L495.6 176h-31.1c-9.6 0-16.9 2.8-21 12.9l-59.7 142.5H426s6.9-19.2 8.4-23.3H486c1.2 5.5 4.8 23.3 4.8 23.3H528z"/></symbol>
+        <symbol id="google-pay" viewBox="0 0 640 512"><path d="M105.72,215v41.25h57.1a49.66,49.66,0,0,1-21.14,32.6c-9.54,6.55-21.72,10.28-36,10.28-27.6,0-50.93-18.91-59.3-44.22a65.61,65.61,0,0,1,0-41l0,0c8.37-25.46,31.7-44.37,59.3-44.37a56.43,56.43,0,0,1,40.51,16.08L176.47,155a101.24,101.24,0,0,0-70.75-27.84,105.55,105.55,0,0,0-94.38,59.11,107.64,107.64,0,0,0,0,96.18v.15a105.41,105.41,0,0,0,94.38,59c28.47,0,52.55-9.53,70-25.91,20-18.61,31.41-46.15,31.41-78.91A133.76,133.76,0,0,0,205.38,215Zm389.41-4c-10.13-9.38-23.93-14.14-41.39-14.14-22.46,0-39.34,8.34-50.5,24.86l20.85,13.26q11.45-17,31.26-17a34.05,34.05,0,0,1,22.75,8.79A28.14,28.14,0,0,1,487.79,248v5.51c-9.1-5.07-20.55-7.75-34.64-7.75-16.44,0-29.65,3.88-39.49,11.77s-14.82,18.31-14.82,31.56a39.74,39.74,0,0,0,13.94,31.27c9.25,8.34,21,12.51,34.79,12.51,16.29,0,29.21-7.3,39-21.89h1v17.72h22.61V250C510.25,233.45,505.26,220.34,495.13,211ZM475.9,300.3a37.32,37.32,0,0,1-26.57,11.16A28.61,28.61,0,0,1,431,305.21a19.41,19.41,0,0,1-7.77-15.63c0-7,3.22-12.81,9.54-17.42s14.53-7,24.07-7C470,265,480.3,268,487.64,273.94,487.64,284.07,483.68,292.85,475.9,300.3Zm-93.65-142A55.71,55.71,0,0,0,341.74,142H279.07V328.74H302.7V253.1h39c16,0,29.5-5.36,40.51-15.93.88-.89,1.76-1.79,2.65-2.68A54.45,54.45,0,0,0,382.25,158.26Zm-16.58,62.23a30.65,30.65,0,0,1-23.34,9.68H302.7V165h39.63a32,32,0,0,1,22.6,9.23A33.18,33.18,0,0,1,365.67,220.49ZM614.31,201,577.77,292.7h-.45L539.9,201H514.21L566,320.55l-29.35,64.32H561L640,201Z"/></symbol>
+    </svg>
+    
+    <header class="header">
+        <div class="header__banner" data-aos="fade-left">
+            <div class="swiper header-houses">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide header-house">
+                        <div class="header-house__banner"><img src="images/header_house_1.jpg" class="object-fit header-house__img" alt="header house"></div>
+                        <div class="header-house__body">
+                            <span class="header-house__title">Manhattan Style</span>
+                            <p class="header-house__desc">Lorem ipsum dolor sit amet, conser adipiscing elit</p>
+                            <div class="header-house__rating">
+                                <svg><use xlink:href="#star"></use></svg>
+                                <div class="header-house__rate">4.8</div>
+                                <div class="header-house__review">
+                                    (<span class="header-house__review-count">400+</span> Review)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide header-house">
+                        <div class="header-house__banner"><img src="images/header_house_2.jpg" class="object-fit header-house__img" alt="header house"></div>
+                        <div class="header-house__body">
+                            <span class="header-house__title">Manhattan Style</span>
+                            <p class="header-house__desc">Lorem ipsum dolor sit amet, conser adipiscing elit</p>
+                            <div class="header-house__rating">
+                                <svg><use xlink:href="#star"></use></svg>
+                                <div class="header-house__rate">4.8</div>
+                                <div class="header-house__review">
+                                    (<span class="header-house__review-count">400+</span> Review)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide header-house">
+                        <div class="header-house__banner"><img src="images/header_house_3.jpg" class="object-fit header-house__img" alt="header house"></div>
+                        <div class="header-house__body">
+                            <span class="header-house__title">Manhattan Style</span>
+                            <p class="header-house__desc">Lorem ipsum dolor sit amet, conser adipiscing elit</p>
+                            <div class="header-house__rating">
+                                <svg><use xlink:href="#star"></use></svg>
+                                <div class="header-house__rate">4.8</div>
+                                <div class="header-house__review">
+                                    (<span class="header-house__review-count">400+</span> Review)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide header-house">
+                        <div class="header-house__banner"><img src="images/header_house_4.jpg" class="object-fit header-house__img" alt="header house"></div>
+                        <div class="header-house__body">
+                            <span class="header-house__title">Manhattan Style</span>
+                            <p class="header-house__desc">Lorem ipsum dolor sit amet, conser adipiscing elit</p>
+                            <div class="header-house__rating">
+                                <svg><use xlink:href="#star"></use></svg>
+                                <div class="header-house__rate">4.8</div>
+                                <div class="header-house__review">
+                                    (<span class="header-house__review-count">400+</span> Review)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide header-house">
+                        <div class="header-house__banner"><img src="images/header_house_5.jpg" class="object-fit header-house__img" alt="header house"></div>
+                        <div class="header-house__body">
+                            <span class="header-house__title">Manhattan Style</span>
+                            <p class="header-house__desc">Lorem ipsum dolor sit amet, conser adipiscing elit</p>
+                            <div class="header-house__rating">
+                                <svg><use xlink:href="#star"></use></svg>
+                                <div class="header-house__rate">4.8</div>
+                                <div class="header-house__review">
+                                    (<span class="header-house__review-count">400+</span> Review)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="nav">
+                <div class="nav__logo">
+                    <svg class="nav__logo-img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 4C0 1.79086 1.79086 0 4 0H28C30.2091 0 32 1.79086 32 4V8C32 21.2548 21.2548 32 8 32H4C1.79086 32 0 30.2091 0 28V4Z" fill="#F59E0B"/>
+                        <path d="M4 8C4 5.79086 5.79086 4 8 4H32C34.2091 4 36 5.79086 36 8V12C36 25.2548 25.2548 36 12 36H8C5.79086 36 4 34.2091 4 32V8Z" fill="#4BE4C9"/>
+                    </svg>
+                    <span class="nav__logo-title">Hounter</span>
+                </div>
+                <div class="nav__content">
+                    <ul class="nav-menu">
+                        <li class="nav-menu__item">
+                            <a href="#" class="nav-menu__link">About Us</a>
+                        </li>
+                        <li class="nav-menu__item">
+                            <a href="#" class="nav-menu__link">Article</a>
+                        </li>
+                        <li class="nav-menu__item">
+                            <a href="#" class="nav-menu__link">Property<svg class="nav-menu_icon"><use xlink:href="#arrowDown"></use></svg></a>
+                            <ul class="nav-submenu">
+                                <li class="nav-submenu__item"><a href="#" class="nav-submenu__link">Featured</a></li>
+                                <li class="nav-submenu__item"><a href="#" class="nav-submenu__link">Selling</a></li>
+                                <li class="nav-submenu__item"><a href="#" class="nav-submenu__link">Subscribe</a></li>
+                                <li class="nav-submenu__item"><a href="#" class="nav-submenu__link">Contact Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="app-btn nav__link">Sign Up!</div>
+                </div>
+                <div class="nav__mobile-toggle">
+                    <span class="nav__mobile-toggle-line"></span>
+                </div>
+                <div class="mobile-nav">
+                    <div class="mobile-nav__head">
+                        <div class="nav__logo">
+                            <svg class="nav__logo-img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 4C0 1.79086 1.79086 0 4 0H28C30.2091 0 32 1.79086 32 4V8C32 21.2548 21.2548 32 8 32H4C1.79086 32 0 30.2091 0 28V4Z" fill="#F59E0B"/>
+                                <path d="M4 8C4 5.79086 5.79086 4 8 4H32C34.2091 4 36 5.79086 36 8V12C36 25.2548 25.2548 36 12 36H8C5.79086 36 4 34.2091 4 32V8Z" fill="#4BE4C9"/>
+                            </svg>
+                            <span class="nav__logo-title">Hounter</span>
+                        </div>
+                        <button class="mobile-nave__close-btn"><svg><use xlink:href="#x-mark"></use></svg></button>
+                    </div>
+                    <ul class="mobile-menu">
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link"><svg><use xlink:href="#about"></use></svg> About Us</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link"><svg><use xlink:href="#article"></use></svg> Article</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link"><svg><use xlink:href="#property"></use></svg> Property</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link"><svg><use xlink:href="#feature"></use></svg> Featured</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link"><svg><use xlink:href="#sell"></use></svg> Selling</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link"><svg><use xlink:href="#subscribe"></use></svg> Subscribe</a></li>
+                        <li class="mobile-menu__item"><a href="#" class="mobile-menu__link"><svg><use xlink:href="#contact"></use></svg> Contact Us</a></li>
+                    </ul>
+                    <div class="payment-method">
+                        <span class="payment-method__title">Payment Methods</span>
+                        <ul class="payment">
+                            <li class="payment__option">
+                                <svg class="payment__icon"><use xlink:href="#paypal"></use></svg>
+                                <span class="payment__method">Paypal</span>
+                            </li>
+                            <li class="payment__option">
+                                <svg class="payment__icon"><use xlink:href="#bitcoin"></use></svg>
+                                <span class="payment__method">Cryptocurency</span>
+                            </li>
+                            <li class="payment__option">
+                                <svg class="payment__icon"><use xlink:href="#bank"></use></svg>
+                                <span class="payment__method">Bank Acount</span>
+                            </li>
+                            <li class="payment__option">
+                                <svg class="payment__icon"><use xlink:href="#visa"></use></svg>
+                                <span class="payment__method">Visa Cart</span>
+                            </li>
+                            <li class="payment__option">
+                                <svg class="payment__icon"><use xlink:href="#google-pay"></use></svg>
+                                <span class="payment__method">Google Pay</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="header__content" data-aos="fade-up">
+                <h1 class="header__title">find the place to live <span class="header__title--stroke">your dreams</span> easily here</h1>
+                <p class="header__caption">Everything you need about finding your place to live will be here, where it will be easier for you</p>
+                <div class="search-box">
+                    <div class="search-box__wrapper">
+                        <svg class="search-box__icon"><use xlink:href="#location"></use></svg>
+                        <input type="text" class="search-box__input" placeholder="Search for the location you want!">
+                    </div>
+                    <button class="app-btn search-box__btn">Search <svg class="search-box__btn-icon"><use xlink:href="#arrowRight"></use></svg></button>
+                </div>
+                <div class="partnership">
+                    <span class="partnership__title">Our Partnership</span>
+                    <div class="partners">
+                        <div class="partner"><img class="partner__img" src="images/compony_1.png" alt="partner"></div>
+                        <div class="partner"><img class="partner__img" src="images/compony_2.png" alt="partner"></div>
+                        <div class="partner"><img class="partner__img" src="images/compony_3.png" alt="partner"></div>
+                        <div class="partner"><img class="partner__img" src="images/compony_4.png" alt="partner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="recommendation" data-aos="fade-up">
+            <div class="container">
+                <div class="recommendation__head">
+                    <div class="section-head">
+                        <span class="section-head__title">Our recommendation</span>
+                        <h2 class="section__title">Featured House</h2>
+                    </div>
+                    <div class="recommendation__filter">
+                        <button class="app-btn recommendation__filter-item recommendation__filter-item--active"><svg><use xlink:href="#house"></use></svg> House</button>
+                        <button class="app-btn recommendation__filter-item"><svg><use xlink:href="#villa"></use></svg> Villa</button>
+                        <button class="app-btn recommendation__filter-item"><svg><use xlink:href="#apartment"></use></svg> Apartment</button>
+                    </div>
+                    <div class="recommendation__slider-btns">
+                        <div class="app-btn recommendation__slider-btn recommendation__slider-btn--prev"><svg style="rotate: 180deg;"><use xlink:href="#arrowRight"></use></svg></div>
+                        <div class="app-btn recommendation__slider-btn recommendation__slider-btn--next"><svg><use xlink:href="#arrowRight"></use></svg></div>
+                    </div>
+                </div>
+                <div class="swiper recommendation__slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_1.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--red"><svg><use xlink:href="#popular"></use></svg> Popular</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">Roselands House</h3>
+                                <span class="recommend__price">$ 35.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_1.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Dianne Russell</span>
+                                        <span class="recommend__seller-place">Manchester, Kentucky</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_2.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--blue"><svg><use xlink:href="#house"></use></svg> New house</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">Woodlandside</h3>
+                                <span class="recommend__price">$ 20.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_2.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Robert Fox</span>
+                                        <span class="recommend__seller-place">Dr. San Jose, South Dakota</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_3.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--green"><svg><use xlink:href="#wallet"></use></svg> Best Deals</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">The Old Lighthouse</h3>
+                                <span class="recommend__price">$ 44.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_3.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Ronald Richards</span>
+                                        <span class="recommend__seller-place">Santa Ana, Illinois</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_4.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--red"><svg><use xlink:href="#popular"></use></svg> Popular</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">Cosmo's House</h3>
+                                <span class="recommend__price">$ 22.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_4.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Jenny Wilson</span>
+                                        <span class="recommend__seller-place">Preston Rd. Inglewood, Maine 98380</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_5.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--green"><svg><use xlink:href="#wallet"></use></svg> Best Deals</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">Modern House</h3>
+                                <span class="recommend__price">$ 45.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_1.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Scott Ties</span>
+                                        <span class="recommend__seller-place">Office and Administrative Support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_6.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--blue"><svg><use xlink:href="#house"></use></svg> New House</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">Great Area</h3>
+                                <span class="recommend__price">$ 37.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_2.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Patrick Connor</span>
+                                        <span class="recommend__seller-place">Gaming Cage Worker</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_3.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--green"><svg><use xlink:href="#wallet"></use></svg> Best Deals</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">The Old Lighthouse</h3>
+                                <span class="recommend__price">$ 44.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_3.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Ronald Richards</span>
+                                        <span class="recommend__seller-place">Santa Ana, Illinois</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide recommend" data-aos="fade-in">
+                            <div class="recommend__banner">
+                                <img src="images/featured_house_4.jpg" class="object-fit recommend__img" alt="house">
+                                <div class="recommend__state recommend__state--red"><svg><use xlink:href="#popular"></use></svg> Popular</div>
+                            </div>
+                            <div class="recommend__body">
+                                <h3 class="recommend__title">Cosmo's House</h3>
+                                <span class="recommend__price">$ 22.000.000</span>
+                                <div class="recommend__seller">
+                                    <div class="recommend__seller-img">
+                                        <img src="images/featured_person_4.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="recommend__seller-content">
+                                        <span class="recommend__seller-name">Jenny Wilson</span>
+                                        <span class="recommend__seller-place">Preston Rd. Inglewood, Maine 98380</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sell">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6" data-aos="fade-right">
+                        <div class="section-head">
+                            <span class="section-head__title">Ready to Sell!</span>
+                            <h2 class="section__title">Let's tour and see our house!</h2>
+                            <p class="section__caption">Houses recommended by our partners that have been curated to become the home of your dreams!</p>
+                        </div>
+                        <div class="sell__body">
+                            <div class="house-detail">
+                                <h4 class="house-detail__title">House Detail</h4>
+                                <div class="row mt-2">
+                                    <div class="col-6">
+                                        <div class="house-detail__item">
+                                            <svg class="house-detail__icon"><use xlink:href="#bedroom"></use></svg>
+                                            <span class="house-detail__item-title">4 Bedrooms</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="house-detail__item">
+                                            <svg class="house-detail__icon"><use xlink:href="#bath"></use></svg>
+                                            <span class="house-detail__item-title">2 Bathrooms</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="house-detail__item">
+                                            <svg class="house-detail__icon"><use xlink:href="#car"></use></svg>
+                                            <span class="house-detail__item-title">1 Carport</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="house-detail__item">
+                                            <svg class="house-detail__icon"><use xlink:href="#apartment2"></use></svg>
+                                            <span class="house-detail__item-title">2 apartment</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="seller">
+                                <div class="seller__wrapper">
+                                    <div class="seller__img">
+                                        <img src="images/featured_person_1.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="seller__content">
+                                        <span class="seller__name">Dianne Russell</span>
+                                        <span class="seller__place">Manchester, Kentucky</span>
+                                    </div>
+                                </div>
+                                <div class="app-btn seller__contact-link"><svg><use xlink:href="#phone"></use></svg> Contact Now</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6" data-aos="fade-left">
+                        <div class="sell__banner">
+                            <img src="images/sell_house_1.jpg" class="object-fit sell__banner-img" alt="seller house">
+                            <div class="sell__play">
+                                <svg class="sell__paly-icon"><use xlink:href="#play"></use></svg>
+                            </div>
+                            <div class="row sell__other-banner">
+                                <div class="col-6">
+                                    <div class="sell__banner-item"><img src="images/sell_house_2.jpg" class="object-fit" alt="seller house"></div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="sell__banner-item"><img src="images/sell_house_3.jpg" class="object-fit" alt="seller house"></div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="sell__banner-item"><img src="images/sell_house_4.jpg" class="object-fit" alt="seller house"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="review" data-aos="fade-up">
+            <div class="section-head section-head--line-top">
+                <span class="section-head__title">See Our Review</span>
+                <h2 class="section__title">What Our User Say About Us</h2>
+            </div>
+            <div class="swiper review__slider">
+                    <div class="swiper-wrapper">
+                    <div class="swiper-slide review__item">
+                        <img src="images/review_house_1.jpg" class="object-fit review__img" alt="review house">
+                        <div class="review__body">
+                            <div class="review__title">My house sold out fast!</div>
+                            <p class="review__caption">I was finally able to sell my house quickly through Hounter by immediately setting me up with people who wanted my house. I also do not get a discount from the sale of my house. Awesome!</p>
+                            <div class="reviewer">
+                                <div class="reviewer__wrapper">
+                                    <div class="reviewer__img">
+                                        <img src="images/featured_person_1.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="reviewer__content">
+                                        <span class="reviewer__name">Courtney Henry</span>
+                                        <span class="reviewer__place">CEO Andarafish</span>
+                                    </div>
+                                </div>
+                                <div class="reviewer__star"><svg><use xlink:href="#star"></use></svg> <span class="reviewer__star-amount">4.6</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide review__item">
+                        <img src="images/review_house_2.jpg" class="object-fit review__img" alt="review house">
+                        <div class="review__body">
+                            <div class="review__title">Best! I got the house I wanted through Hounter</div>
+                            <p class="review__caption">Through this website I can get a house with the type and specifications I want very easily, without a complicated process to be able to find information on the house we want.</p>
+                            <div class="reviewer">
+                                <div class="reviewer__wrapper">
+                                    <div class="reviewer__img">
+                                        <img src="images/featured_person_2.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="reviewer__content">
+                                        <span class="reviewer__name">Dianne Russell</span>
+                                        <span class="reviewer__place">Manchester, Kentucky</span>
+                                    </div>
+                                </div>
+                                <div class="reviewer__star"><svg><use xlink:href="#star"></use></svg> <span class="reviewer__star-amount">4.8</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide review__item">
+                        <img src="images/review_house_3.jpg" class="object-fit review__img" alt="review house">
+                        <div class="review__body">
+                            <div class="review__title">I can get a house for my self</div>
+                            <p class="review__caption">By looking for information about what kind of house we want, we managed to get the house we wanted very quickly, and directly connected with the seller to be able to ask about the details, very helpful!</p>
+                            <div class="reviewer">
+                                <div class="reviewer__wrapper">
+                                    <div class="reviewer__img">
+                                        <img src="images/featured_person_3.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="reviewer__content">
+                                        <span class="reviewer__name">Esther Howard</span>
+                                        <span class="reviewer__place">Head of Marketing</span>
+                                    </div>
+                                </div>
+                                <div class="reviewer__star"><svg><use xlink:href="#star"></use></svg> <span class="reviewer__star-amount">4.2</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide review__item">
+                        <img src="images/review_house_4.jpg" class="object-fit review__img" alt="review house">
+                        <div class="review__body">
+                            <div class="review__title">I can get a house for my self, very good.</div>
+                            <p class="review__caption">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos distinctio molestias nemo, aliquam cumque illum eius, consequatur blanditiis, nisi aliquid nobis voluptas dolore. Temporibus, laboriosam.</p>
+                            <div class="reviewer">
+                                <div class="reviewer__wrapper">
+                                    <div class="reviewer__img">
+                                        <img src="images/featured_person_4.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="reviewer__content">
+                                        <span class="reviewer__name">Jenny Wilson</span>
+                                        <span class="reviewer__place">Preston Rd. Inglewood, Maine 98380</span>
+                                    </div>
+                                </div>
+                                <div class="reviewer__star"><svg><use xlink:href="#star"></use></svg> <span class="reviewer__star-amount">4.3</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide review__item">
+                        <img src="images/review_house_5.jpg" class="object-fit review__img" alt="review house">
+                        <div class="review__body">
+                            <div class="review__title">my best sell in my life, this compony's nice!</div>
+                            <p class="review__caption">Antoni Gaudí was Barcelona's most famous architect and he created three houses, Casa Batlló, Casa Mila and Casa Vicens that are open to the public for visits..</p>
+                            <div class="reviewer">
+                                <div class="reviewer__wrapper">
+                                    <div class="reviewer__img">
+                                        <img src="images/featured_person_3.png" class="object-fit" alt="seller">
+                                    </div>
+                                    <div class="reviewer__content">
+                                        <span class="reviewer__name">Jenny Wilson</span>
+                                        <span class="reviewer__place">Preston Rd. Inglewood</span>
+                                    </div>
+                                </div>
+                                <div class="reviewer__star"><svg><use xlink:href="#star"></use></svg> <span class="reviewer__star-amount">4.9</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review__pagination"></div>
+            </div>
+        </section>
+        <section class="articles" data-aos="fade-up">
+            <div class="container">
+                <div class="section-head section-head--line-top">
+                    <span class="section-head__title">See tips and trick from our partnership</span>
+                    <h2 class="section__title">Find out more about selling and buying homes</h2>
+                    <div class="app-btn section-head__link">More Article</div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 col-xl-6">
+                        <div class="articles__wrapper">
+                            <div class="article" data-aos="fade-up">
+                                <div class="article__banner"><img class="object-fit" src="images/article_house_4.jpg" alt="article house"></div>
+                                <div class="article__body">
+                                    <div class="publisher">
+                                        <div class="publisher__profile"><img src="images/featured_person_1.png" class="object-fit" alt="publisher"></div>
+                                        <span class="publisher__name">Dianne Russell</span>
+                                    </div>
+                                    <h3 class="article__title">The things we need to check when we want to buy a house</h3>
+                                    <div class="article__data">
+                                        <svg class="article__icon"><use xlink:href="#clock"></use></svg>
+                                        <div class="article__time-data"><span class="article__read-time">4 min</span> read | <span class="article__date">25 Apr 2021</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article" data-aos="fade-up">
+                                <div class="article__banner"><img class="object-fit" src="images/article_house_2.jpg" alt="article house"></div>
+                                <div class="article__body">
+                                    <div class="publisher">
+                                        <div class="publisher__profile"><img src="images/featured_person_2.png" class="object-fit" alt="publisher"></div>
+                                        <span class="publisher__name">Courtney Henry</span>
+                                    </div>
+                                    <h3 class="article__title">7 Ways to distinguish the quality of the house we want to buy</h3>
+                                    <div class="article__data">
+                                        <svg class="article__icon"><use xlink:href="#clock"></use></svg>
+                                        <div class="article__time-data"><span class="article__read-time">6 min</span> read | <span class="article__date">24 Apr 2021</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article" data-aos="fade-up">
+                                <div class="article__banner"><img class="object-fit" src="images/article_house_3.jpg" alt="article house"></div>
+                                <div class="article__body">
+                                    <div class="publisher">
+                                        <div class="publisher__profile"><img src="images/featured_person_4.png" class="object-fit" alt="publisher"></div>
+                                        <span class="publisher__name">Darlene Robertson</span>
+                                    </div>
+                                    <h3 class="article__title">The best way to know the quality of the house we want to buy</h3>
+                                    <div class="article__data">
+                                        <svg class="article__icon"><use xlink:href="#clock"></use></svg>
+                                        <div class="article__time-data"><span class="article__read-time">2 min</span> read | <span class="article__date">24 Apr 2021</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-6">
+                        <div class="article article--bold" data-aos="fade-up">
+                            <div class="article__banner article__banner--bold"><img class="object-fit" src="images/article_house_1.jpg" alt="article house"></div>
+                            <div class="article__body">
+                                <div class="publisher">
+                                    <div class="publisher__profile"><img src="images/featured_person_3.png" class="object-fit" alt="publisher"></div>
+                                    <span class="publisher__name">Cameron Williamson</span>
+                                </div>
+                                <h3 class="article__title">12 Things to know before buying a house</h3>
+                                <p class="article__desc">Want to buy a house but are unsure about what we should know, here I will try to explain what we should know and check when we want to buy a house</p>
+                                <div class="article__data">
+                                    <svg class="article__icon"><use xlink:href="#clock"></use></svg>
+                                    <div class="article__time-data"><span class="article__read-time">2 min</span> read | <span class="article__date">24 Apr 2021</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="subscribe" data-aos="fade-up">
+            <div class="container">
+                <div class="subscribe__wrapper">
+                    <div class="subscribe__body">
+                        <div class="section__title">Subscribe For More Info and update from Hounter</div>
+                        <div class="subscribe-box">
+                            <div class="subscribe-box__wrapper">
+                                <svg class="subscribe-box__icon"><use xlink:href="#email"></use></svg>
+                                <input type="text" class="subscribe-box__input" placeholder="Your email here">
+                            </div>
+                            <button class="app-btn subscribe-box__btn">Subscribe Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="col-12 col-md-5 col-lg-4 col-xl-3" data-aos="fade-right" data-aos-offset="100">
+                    <div class="footer__content">
+                        <div class="footer__logo">
+                            <img src="images/logo.png" class="footer__logo-img" alt="logo">
+                            <span class="footer__logo-text">Hounter</span>
+                        </div>
+                        <p class="footer__caption">We provide information about properties such as houses, villas and apartments to help people find their dream home</p>
+                        <div class="footer__socials">
+                            <div class="footer__social"><svg><use xlink:href="#facebook"></use></svg></div>
+                            <div class="footer__social"><svg><use xlink:href="#likdedin"></use></svg></div>
+                            <div class="footer__social"><svg><use xlink:href="#telegram"></use></svg></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-7" data-aos="fade-left" data-aos-offset="100">
+                    <div class="row">
+                        <div class="col">
+                            <div class="footer__list-title">Property</div>
+                            <ul class="footer-list">
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">House</a></li>
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">Apartment</a></li>
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">Villa</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <div class="footer__list-title">Article</div>
+                            <ul class="footer-list">
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">New Article</a></li>
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">Popular Article</a></li>
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">Most Read</a></li>
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">Tips & Tricks</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <div class="footer__list-title">Contact</div>
+                            <ul class="footer-list">
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">2464 Royal Ln. Mesa, New Jersey 45463</a></li>
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">(671) 555-0110</a></li>
+                                <li class="footer-list__item"><a href="#" class="footeer-item__link">info@hounter.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cover"></div>
+    <div class="scroll-to-top">
+        <svg><use xlink:href="#arrowDown"></use></svg>
+    </div>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+@media (max-width: 1400px) {
+    .nav__link, .nav-menu__item:not(.nav-menu__item:first-child) {
+        margin-left: 2rem;
+    }
+
+    .header__banner {
+        width: 48%;
+    }
+
+    .header-houses {
+        overflow: visible !important;
+    }
+
+    .header-house {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .header-house__banner {
+        margin-top: -5rem;
+        margin-bottom: 1rem;
+        width: 20rem;
+        height: 14rem;
+    }
+
+    .header-house__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .sell:before,
+    .sell::after,
+    .articles::before,
+    .articles::after,
+    .footer::before,
+    .footer::after {
+        display: none;
+    }
+
+    .nav__link, .nav-menu__item:not(.nav-menu__item:first-child) {
+        margin-left: 1rem;
+    }
+
+    .header__content {
+        max-width: 42rem;
+    }
+
+    .header__banner {
+        width: 52%;
+    }
+
+    .sell__other-banner {
+        margin-right: 0;
+        left: 2rem;
+        margin-top: -8rem;
+    }
+
+    .articles .row {
+        flex-direction: column-reverse;
+    }
+
+    .footer {
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .header__banner {
+        display: none;
+    }
+
+    .header__content, .partnership {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* .nav-menu__link {   
+        color: #fff;
+        background-color: #10B981;
+        border: none;
+    } */
+
+    .recommendation__head {
+        flex-direction: column;
+    }
+
+    .section-head {
+        text-align: center;
+    }
+
+    .section-head__title::before {
+        left: 0;
+        right: 0;
+        top: -4rem;
+        width: 10rem;
+    }
+
+    .recommendation__filter {
+        margin: 2rem 0;
+    }
+
+    .sell__body, .section__caption, .sell__banner {
+        max-width: initial;
+    }
+
+    .sell__body {
+        max-width: 80%;
+        margin: 2rem auto 0 auto;
+    }
+
+    .house-detail {
+        text-align: center;
+        margin: auto;
+    }
+
+    .house-detail__item {
+        margin-left: 6rem;
+    }
+
+    .sell__other-banner {
+        margin-top: -12rem;
+    }
+    
+
+}
+
+@media (max-width: 768px) {
+
+    * {
+        cursor: default !important;
+    }
+
+    .header__content {
+        text-align: center;
+    }
+
+    .nav__content {
+        display: none;
+    }
+
+    .nav__mobile-toggle {
+        display: flex;
+    }
+
+    .sell__body {
+        max-width: initial;
+    }
+
+    .sell__other-banner {
+        margin-top: -8rem;
+    }
+
+    .review__body {
+        bottom: -15rem;
+    }
+
+    .review__pagination {
+        margin-top: 17rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .recommend__banner {
+        height: 35rem;
+    }
+
+    .recommend__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .house-detail__item {
+        margin-left: 5rem;
+    }
+
+    .article__banner {
+        min-width: 20rem;
+    }
+
+    .article__title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 500px) {
+    html {
+        font-size: 7px;
+    }
+
+    .header::before,
+    .header::after {
+        width: 100rem;
+        height: 100rem;
+    }
+
+    .header {
+        min-height: initial;
+    }
+
+    .recommendation,
+    .sell,
+    .review,
+    .articles,
+    .subscribe {
+        margin-top: 8rem;
+    }
+
+    .house-detail__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .house-detail__item {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .house-detail__item-title {
+        margin: 1rem 0 0 0;
+    }
+
+    .sell__other-banner > .col-3,
+    .sell__other-banner > .col-6 {
+        display: none;
+    }
+}
