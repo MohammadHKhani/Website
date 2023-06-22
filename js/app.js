@@ -4,7 +4,8 @@ const navbarMobileToggle = $.querySelector('.nav__mobile-toggle'),
 navbarMobileMenu = $.querySelector('.mobile-nav'),
 navbarMobileCloseBtn = $.querySelector('.mobile-nave__close-btn'),
 cover = $.querySelector('.cover'),
-scrollToTopBtn = $.querySelector('.scroll-to-top')
+scrollToTopBtn = $.querySelector('.scroll-to-top'),
+pageLoader = $.querySelector('.page-loader')
 
 function navbarMobileActions () {
     navbarMobileToggle.classList.toggle('nav__mobile-toggle--active')
@@ -23,6 +24,10 @@ scrollToTopBtn.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     })
+})
+
+window.addEventListener('load', () => {
+    pageLoader.classList.add('page-loader--remove')
 })
 
 window.addEventListener('click', e => {
